@@ -18,7 +18,12 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ["https://frontend-sage-seven-47.vercel.app"],
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+
 app.use(express.json());
 app.get('/', (req, res) => {
   res.send('✅ Backend is running successfully on Render!');
